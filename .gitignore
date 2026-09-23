@@ -1,0 +1,26 @@
+# Chaves e Segredos
+master.key
+key.txt
+*.key
+*.pem
+.env
+
+# Dados Brutos e Cofre Cifrado (LGPD)
+conversas.jsonl
+conversas_bruto.txt
+extraidas.json
+.bizz-state.json
+vault/
+metrics/
+train/
+*.log
+
+# Python & Node Dependencies
+__pycache__/
+*.pyc
+node_modules/
+
+# OS and Temp Files
+.DS_Store
+Thumbs.db
+tmp/

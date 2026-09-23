@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BIZZ.IA — Dashboard de Atendimento</title>
+<style>
+  :root {
+    --preto: #000000;
+    --cobre: #B87333;
+    --dourado: #D4A853;
+    --marrom-escuro: #36220F;
+    --marrom-medio: #492E14;
+    --texto: #EAE2D6;
+    --muted: #A8987F;
+    --card: #120B05;
+    --border: #2A1C0E;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background: var(--preto); color: var(--texto); font-family:'Segoe UI', system-ui, sans-serif; line-height:1.5; }
+  .wrap { max-width: 960px; margin:0 auto; padding:36px 28px 56px; }
+  .logo { text-align:center; margin-bottom:6px; }
+  .logo img { width:260px; height:auto; }
+  .sub { text-align:center; color:var(--muted); letter-spacing:3px; text-transform:uppercase; font-size:11px; margin-bottom:28px; }
+  h1 { text-align:center; font-size:24px; color:var(--dourado); font-weight:600; margin-bottom:4px; }
+  .meta { text-align:center; color:var(--muted); font-size:12px; margin-bottom:32px; }
+  h2 { font-size:14px; text-transform:uppercase; letter-spacing:2px; color:var(--cobre); margin:34px 0 12px; border-bottom:1px solid var(--border); padding-bottom:7px; }
+  .kpis { display:flex; gap:14px; flex-wrap:wrap; }
+  .kpi { flex:1; min-width:150px; background:var(--card); border:1px solid var(--border); border-left:3px solid var(--cobre); padding:14px 16px; }
+  .kpi .v { font-size:26px; color:var(--dourado); font-weight:700; }
+  .kpi .l { font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; }
+  table { width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--border); }
+  th,td { padding:9px 12px; text-align:left; font-size:13px; border-bottom:1px solid var(--border); }
+  th { background:var(--marrom-escuro); color:var(--dourado); text-transform:uppercase; font-size:10px; letter-spacing:1px; }
+  tr:last-child td { border-bottom:none; }
+  td.num, th.num { text-align:right; font-variant-numeric:tabular-nums; }
+  tr.total td { background:var(--marrom-medio); color:var(--dourado); font-weight:600; }
+  .bar { display:inline-block; width:110px; height:8px; background:var(--marrom-escuro); border-radius:4px; margin-right:8px; vertical-align:middle; }
+  .fill { height:8px; background:linear-gradient(90deg,var(--cobre),var(--dourado)); border-radius:4px; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media(max-width:640px){ .grid2{ grid-template-columns:1fr; } }
+  .chip { display:inline-block; background:var(--marrom-medio); color:var(--dourado); border-radius:3px; padding:1px 8px; font-size:11px; margin-right:4px; }
+  footer { margin-top:44px; text-align:center; color:var(--muted); font-size:11px; letter-spacing:1px; }
+  .barv { height:10px; background:linear-gradient(90deg,var(--cobre),var(--dourado)); border-radius:5px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo"><img src="__LOGO__" alt="BIZZ.IA"></div>
+  <div class="sub">Inteligência para clínicas premium</div>
+  <h1>Dashboard de Atendimento — WhatsApp</h1>
+  <div class="meta">Dados anonimizados (LGPD) · gerado automaticamente pelo pipeline bizz.ia</div>
+
+  <div class="kpis" id="kpis"></div>
+
+  <h2>Destino — para qual médico</h2>
+  <div id="destino"></div>
+
+  <h2>Quem atendeu</h2>
+  <div id="quem"></div>
+
+  <h2>Destino × Desfecho</h2>
+  <div id="dest_x_desf"></div>
+
+  <h2>Quem atendeu × Desfecho</h2>
+  <div id="quem_x_desf"></div>
+
+  <h2>Terceira via — conversas em aberto</h2>
+  <div id="terceira"></div>
+
+  <div class="grid2">
+    <div><h2>Procedimentos</h2><div id="procedimentos"></div></div>
+    <div><h2>Objeções</h2><div id="objecoes"></div></div>
+  </div>
+
+  <h2>Volume por hora (8h–22h)</h2>
+  <div id="horas"></div>
+
+  <h2>Volume por dia da semana</h2>
+  <div id="dias"></div>
+
+  <footer>BIZZ.IA · somente dados sintéticos/anônimos · decisão final é médica</footer>
+</div>
+
+<script>
+const DADOS = /*__DADOS__*/{};
+const el = id => document.getElementById(id);
+
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+// KPIs
+(function(){
+  const k = DADOS.kpis || {};
+  const cards = [
+    [k.total ?? 0, 'Conversas'],
+    [k.fechou ?? 0, 'Fechadas'],
+    [k.perdeu ?? 0, 'Perdidas'],
+    [k.indefinido ?? 0, 'Em aberto'],
+    [(k.taxa_fechamento ?? 0)+'%', 'Taxa fechamento'],
+    [(k.latencia_media_min ?? 0)+'min', 'Latência média'],
+  ];
+  el('kpis').innerHTML = cards.map(([v,l]) =>
+    `<div class="kpi"><div class="v">${esc(v)}</div><div class="l">${esc(l)}</div></div>`).join('');
+})();
+
+// tabela generica: linhas [{nome, n, fechou, perdeu, terceira, taxa}]
+function tabelaDesfecho(rows, labels){
+  const max = Math.max(...rows.map(r=>r.n||0), 1);
+  let h = `<table><tr><th>${esc(labels[0])}</th><th class="num">Conversas</th><th class="num">Fechou</th><th class="num">Perdeu</th><th class="num">3ª via</th><th class="num">Taxa</th><th>Proporção</th></tr>`;
+  for(const r of rows){
+    h += `<tr><td>${esc(r.nome)}</td><td class="num">${r.n}</td><td class="num">${r.fechou}</td><td class="num">${r.perdeu}</td><td class="num">${r.terceira}</td><td class="num">${r.taxa}%</td><td><span class="bar"><span class="fill" style="width:${Math.round(100*(r.n||0)/max)}%"></span></span></td></tr>`;
+  }
+  h += `</table>`;
+  return h;
+}
+
+el('destino').innerHTML = tabelaDesfecho(DADOS.destino || [], ['Médico']);
+el('quem').innerHTML = tabelaDesfecho(DADOS.quem_atendeu || [], ['Quem atendeu']);
+
+// cruzado destino x desfecho
+(function(){
+  const d = DADOS.dest_x_desf || [];
+  let h = `<table><tr><th>Destino</th><th class="num">Fechou</th><th class="num">Perdeu</th><th class="num">3ª via</th></tr>`;
+  for(const r of d){ h += `<tr><td>${esc(r.nome)}</td><td class="num">${r.fechou}</td><td class="num">${r.perdeu}</td><td class="num">${r.terceira}</td></tr>`; }
+  h += `</table>`;
+  el('dest_x_desf').innerHTML = h;
+})();
+
+(function(){
+  const d = DADOS.quem_x_desf || [];
+  let h = `<table><tr><th>Quem atendeu</th><th class="num">Fechou</th><th class="num">Perdeu</th><th class="num">3ª via</th></tr>`;
+  for(const r of d){ h += `<tr><td>${esc(r.nome)}</td><td class="num">${r.fechou}</td><td class="num">${r.perdeu}</td><td class="num">${r.terceira}</td></tr>`; }
+  h += `</table>`;
+  el('quem_x_desf').innerHTML = h;
+})();
+
+// terceira via
+(function(){
+  const d = DADOS.terceira_via || [];
+  const max = Math.max(...d.map(r=>r.n||0), 1);
+  let h = `<table><tr><th>Situação</th><th class="num">Qtd</th><th>Proporção</th></tr>`;
+  for(const r of d){ h += `<tr><td>${esc(r.situacao)}</td><td class="num">${r.n}</td><td><span class="bar"><span class="fill" style="width:${Math.round(100*(r.n||0)/max)}%"></span></span></td></tr>`; }
+  h += `</table>`;
+  el('terceira').innerHTML = h;
+})();
+
+// listas simples (procedimentos / objecoes)
+function listaChips(d){
+  const max = Math.max(...d.map(r=>r.n||0), 1);
+  let h = `<table><tr><th>Item</th><th class="num">Qtd</th><th class="num">%</th><th>Proporção</th></tr>`;
+  for(const r of d){ h += `<tr><td>${esc(r.nome)}</td><td class="num">${r.n}</td><td class="num">${r.pct}%</td><td><span class="bar"><span class="fill" style="width:${Math.round(100*(r.n||0)/max)}%"></span></span></td></tr>`; }
+  h += `</table>`;
+  return h;
+}
+el('procedimentos').innerHTML = listaChips(DADOS.procedimentos || []);
+el('objecoes').innerHTML = listaChips(DADOS.objecoes || []);
+
+// horas (barras)
+(function(){
+  const d = DADOS.horas || [];
+  const max = Math.max(...d.map(r=>r.n||0), 1);
+  let h = `<table><tr><th>Hora</th><th>Volume</th></tr>`;
+  for(const r of d){ h += `<tr><td>${esc(r.h)}h</td><td><span class="bar" style="width:${Math.max(30,Math.round(400*(r.n||0)/max))}px"><span class="fill" style="width:100%"></span></span> ${r.n}</td></tr>`; }
+  h += `</table>`;
+  el('horas').innerHTML = h;
+})();
+
+// dias
+(function(){
+  const d = DADOS.dias || [];
+  const max = Math.max(...d.map(r=>r.n||0), 1);
+  let h = `<table><tr><th>Dia</th><th>Volume</th></tr>`;
+  for(const r of d){ h += `<tr><td>${esc(r.d)}</td><td><span class="bar" style="width:${Math.max(30,Math.round(400*(r.n||0)/max))}px"><span class="fill" style="width:100%"></span></span> ${r.n}</td></tr>`; }
+  h += `</table>`;
+  el('dias').innerHTML = h;
+})();
+</script>
+</body>
+</html>

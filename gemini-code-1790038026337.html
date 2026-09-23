@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BIZZ.IA · Dossiê Forense Executivo — Protocolo Action Plan</title>
+  <!-- Google Fonts: Cinzel & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bizzBlack: '#000000',
+            bizzCard: '#0A0A0A',
+            bizzCardBorder: 'rgba(255, 255, 255, 0.05)',
+            bizzCopper: '#B87333',
+            bizzGold: '#D4A853',
+            bizzMuted: '#8E8D8A',
+            bizzText: '#F0EDE8'
+          },
+          fontFamily: {
+            cinzel: ['Cinzel', 'serif'],
+            inter: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #000000;
+      color: #F0EDE8;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    .font-luxury {
+      font-family: 'Cinzel', serif;
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #D4A853 0%, #B87333 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-border-glow {
+      border: 1px solid rgba(212, 168, 83, 0.25);
+      box-shadow: 0 0 25px rgba(184, 115, 51, 0.08);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #000000;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #B87333;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="custom-scrollbar antialiased selection:bg-bizzCopper selection:text-white">
+
+  <!-- BARRA DE TOPO INSTITUCIONAL -->
+  <header class="border-b border-bizzCardBorder sticky top-0 bg-bizzBlack/90 backdrop-blur-md z-50 px-8 py-4 flex justify-between items-center">
+    <div class="flex items-center space-x-4">
+      <div class="w-9 h-9 border border-bizzGold flex items-center justify-center rounded-sm bg-bizzCard">
+        <span class="font-luxury text-bizzGold font-bold text-lg">B</span>
+      </div>
+      <div>
+        <h1 class="text-xs uppercase tracking-widest text-bizzMuted">Engenharia Forense de Conversão</h1>
+        <p class="text-sm font-semibold tracking-wider text-bizzText uppercase font-luxury">bizz.ia · Auditoria Executiva</p>
+      </div>
+    </div>
+    <div class="flex items-center space-x-6">
+      <div class="text-right hidden sm:block">
+        <span class="text-xs text-bizzMuted uppercase tracking-widest block">Unidade Auditada</span>
+        <span class="text-sm font-medium text-bizzGold">Clínica La Vienne Medicina & Beleza</span>
+      </div>
+      <span class="px-3 py-1 bg-red-950/40 border border-red-500/30 text-red-400 text-xs font-semibold rounded tracking-wider uppercase flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+        Score Crítico: 28.4%
+      </span>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-10 space-y-12">
+
+    <!-- HERO SECTION: O ABISMO FINANCEIRO -->
+    <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      
+      <!-- CARD 1: HEMORRAGIA IMEDIATA -->
+      <div class="bg-bizzCard p-6 rounded-lg border border-bizzCardBorder gold-border-glow flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between text-bizzMuted text-xs tracking-widest uppercase mb-2">
+            <span>Hemorragia Imediata (Corpus)</span>
+            <i class="fa-solid fa-receipt text-bizzCopper"></i>
+          </div>
+          <h2 class="text-3xl font-luxury font-bold text-white tracking-wide">R$ 20.082<span class="text-bizzCopper text-lg">,00</span></h2>
+          <p class="text-xs text-bizzMuted mt-2 leading-relaxed">
+            Perda nominal mapeada nas cotações ativas que receberam valor no WhatsApp e foram abandonadas sem contorno.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-bizzCardBorder flex justify-between text-xs">
+          <span class="text-bizzMuted">Volume Auditado:</span>
+          <span class="text-bizzGold font-medium">115 Conversas (38 Comerciais)</span>
+        </div>
+      </div>
+
+      <!-- CARD 2: HEMORRAGIA ANUALIZADA (ESTIMATIVA) -->
+      <div class="bg-bizzCard p-6 rounded-lg border border-bizzCardBorder gold-border-glow flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between text-bizzMuted text-xs tracking-widest uppercase mb-2">
+            <span>Abismo Anualizado Projetado</span>
+            <i class="fa-solid fa-chart-line-down text-red-400"></i>
+          </div>
+          <h2 class="text-3xl font-luxury font-bold text-red-400 tracking-wide">R$ 900.000<span class="text-bizzGold text-lg">,00</span></h2>
+          <p class="text-xs text-bizzMuted mt-2 leading-relaxed">
+            [ESTIMATIVA] Projeção de 12 meses mantendo o ralo atual de 26 leads/mês descartados com LTV conservador.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-bizzCardBorder flex justify-between text-xs">
+          <span class="text-bizzMuted">Custo de Inação:</span>
+          <span class="text-red-400 font-medium">R$ 75.000,00 / mês</span>
+        </div>
+      </div>
+
+      <!-- CARD 3: SCORE BIZZ-GOLD -->
+      <div class="bg-bizzCard p-6 rounded-lg border border-bizzCardBorder gold-border-glow flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between text-bizzMuted text-xs tracking-widest uppercase mb-2">
+            <span>Score Bizz-Gold™ da Unidade</span>
+            <i class="fa-solid fa-shield-halved text-bizzGold"></i>
+          </div>
+          <div class="flex items-baseline gap-3">
+            <h2 class="text-4xl font-luxury font-bold gold-gradient-text">28.4%</h2>
+            <span class="text-xs uppercase tracking-wider text-red-400 font-semibold">Risco Crítico</span>
+          </div>
+          <p class="text-xs text-bizzMuted mt-2 leading-relaxed">
+            Capitulação em SPIN Selling e Contorno de Objeções (0%). A equipa atua como operadora de balcão de preços.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-bizzCardBorder flex justify-between text-xs">
+          <span class="text-bizzMuted">Meta Mínima High-Ticket:</span>
+          <span class="text-bizzGold font-medium">85.0% de Aderência</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION GRÁFICOS: SEGMENTAÇÃO E RADAR BIZZ-GOLD -->
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      
+      <!-- RADAR DO SCORE -->
+      <div class="bg-bizzCard p-6 rounded-lg border border-bizzCardBorder">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="font-luxury text-base text-bizzText font-semibold tracking-wider uppercase">
+            <i class="fa-solid fa-compass-drafting text-bizzGold mr-2"></i> Diagnóstico dos 6 Eixos Comerciais
+          </h3>
+          <span class="text-xs text-bizzMuted uppercase tracking-widest">Protocolo Blind-Audit™</span>
+        </div>
+        <div class="h-64 flex items-center justify-center">
+          <canvas id="radarChart"></canvas>
+        </div>
+      </div>
+
+      <!-- RADIOGRAFIA DO CORPUS (PIE/DOUGHNUT) -->
+      <div class="bg-bizzCard p-6 rounded-lg border border-bizzCardBorder">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="font-luxury text-base text-bizzText font-semibold tracking-wider uppercase">
+            <i class="fa-solid fa-filter text-bizzCopper mr-2"></i> Triagem do Corpus: Vendas vs. Ruído
+          </h3>
+          <span class="text-xs text-bizzMuted uppercase tracking-widest">115 Registos Analisados</span>
+        </div>
+        <div class="h-64 flex items-center justify-center">
+          <canvas id="funnelChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- TABELA COMPARATIVA DE OPERADORES: CARLA VS. MARIA -->
+    <section class="bg-bizzCard rounded-lg border border-bizzCardBorder overflow-hidden">
+      <div class="p-6 border-b border-bizzCardBorder flex justify-between items-center">
+        <div>
+          <h3 class="font-luxury text-base text-bizzText font-semibold tracking-wider uppercase">
+            <i class="fa-solid fa-users-viewfinder text-bizzGold mr-2"></i> Raio-X Individual de Atendimento
+          </h3>
+          <p class="text-xs text-bizzMuted mt-1">Mapeamento nominal das hostesses identificadas nos logs brutos.</p>
+        </div>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs text-bizzText">
+          <thead class="bg-black/50 text-bizzMuted uppercase text-[10px] tracking-widest border-b border-bizzCardBorder">
+            <tr>
+              <th class="p-4">Operadora</th>
+              <th class="p-4">Conversas Comerciais</th>
+              <th class="p-4">Conversão Real</th>
+              <th class="p-4">Latência Observada</th>
+              <th class="p-4">Vício Primário Mapeado</th>
+              <th class="p-4">Intervenção Imediata</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-bizzCardBorder">
+            <tr class="hover:bg-white/[0.02] transition">
+              <td class="p-4 font-semibold text-bizzGold flex items-center gap-2">
+                <i class="fa-solid fa-user-xmark text-bizzCopper"></i> Carla
+              </td>
+              <td class="p-4">28 tickets</td>
+              <td class="p-4 text-red-400 font-bold">10.7%</td>
+              <td class="p-4 text-bizzMuted">> 48h no Follow-up</td>
+              <td class="p-4 text-bizzMuted">Automatismo em lote (Spam) & Escassez Tóxica ("Agenda para Nov/Dez")</td>
+              <td class="p-4"><span class="px-2 py-1 bg-bizzCopper/20 text-bizzGold border border-bizzCopper/40 rounded text-[10px] uppercase">Abolir atalho de texto longo</span></td>
+            </tr>
+            <tr class="hover:bg-white/[0.02] transition">
+              <td class="p-4 font-semibold text-bizzGold flex items-center gap-2">
+                <i class="fa-solid fa-user-tag text-bizzCopper"></i> Maria
+              </td>
+              <td class="p-4">10 tickets</td>
+              <td class="p-4 text-yellow-400 font-bold">20.0%</td>
+              <td class="p-4 text-green-400 font-medium">Imediata para preços</td>
+              <td class="p-4 text-bizzMuted">Comoditização e entrega prematura de descontos sem contestação</td>
+              <td class="p-4"><span class="px-2 py-1 bg-bizzCopper/20 text-bizzGold border border-bizzCopper/40 rounded text-[10px] uppercase">Treino em SPIN Selling</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- MATRIZ DE RESGATE HIGH-TICKET (LEADS PARADOS COM COPIAR E COLAR) -->
+    <section class="space-y-6">
+      <div class="flex justify-between items-center">
+        <div>
+          <h3 class="font-luxury text-lg text-bizzText font-semibold tracking-wider uppercase">
+            <i class="fa-solid fa-hand-holding-dollar text-bizzGold mr-2"></i> Matriz Tática de Resgate High-Ticket™
+          </h3>
+          <p class="text-xs text-bizzMuted mt-1">Leads qualificados com procedimentos de alta margem abandonados. Roteiros cirúrgicos de reativação imediata.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- RESGATE 1: DANI -->
+        <div class="bg-bizzCard rounded-lg border border-bizzCardBorder p-5 flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex justify-between items-start mb-2">
+              <span class="text-xs font-semibold text-bizzGold font-luxury">Dani (Chat [22])</span>
+              <span class="text-[10px] uppercase px-2 py-0.5 bg-bizzCopper/20 text-bizzGold border border-bizzCopper/30 rounded">R$ 4.000,00</span>
+            </div>
+            <span class="text-xs text-bizzMuted block mb-3">Hiperbárica Pós-Cirúrgica (10 sessões)</span>
+            <div class="p-3 bg-black/60 rounded border border-bizzCardBorder text-xs text-bizzText leading-relaxed">
+              "Olá, Dani. Revisando os atendimentos cirúrgicos com a Dra. Larissa, ela pediu atenção ao seu pós-operatório. A oxigenoterapia hiperbárica tem uma janela essencial logo após a cirurgia para evitar seromas e acelerar a cicatrização dos pontos em 50%. Para alinharmos seu protocolo com o cirurgião, reservei duas opções amanhã: 10h ou 14h. Qual prefere?"
+            </div>
+          </div>
+          <button onclick="copyToClipboard(this)" class="w-full py-2 bg-bizzCopper/20 hover:bg-bizzCopper/40 border border-bizzCopper/50 text-bizzGold rounded text-xs tracking-wider uppercase transition flex items-center justify-center gap-2">
+            <i class="fa-regular fa-copy"></i> Copiar Script
+          </button>
+        </div>
+
+        <!-- RESGATE 2: MÔNICA -->
+        <div class="bg-bizzCard rounded-lg border border-bizzCardBorder p-5 flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex justify-between items-start mb-2">
+              <span class="text-xs font-semibold text-bizzGold font-luxury">Mônica Vizer (Chat [80])</span>
+              <span class="text-[10px] uppercase px-2 py-0.5 bg-bizzCopper/20 text-bizzGold border border-bizzCopper/30 rounded">R$ 6.900,00</span>
+            </div>
+            <span class="text-xs text-bizzMuted block mb-3">Ácido Hialurónico (4 Ampolas)</span>
+            <div class="p-3 bg-black/60 rounded border border-bizzCardBorder text-xs text-bizzText leading-relaxed">
+              "Mônica, boa tarde! Estive reunida com a Dra. Larissa a rever os planeamentos faciais. Ela pontuou que podemos executar o seu tratamento em duas fases: iniciamos com as 2 ampolas estruturantes na data do seu retorno. Assim, garante o efeito tensor imediato sem pesar no orçamento do mês. Posso deixar o produto reservado?"
+            </div>
+          </div>
+          <button onclick="copyToClipboard(this)" class="w-full py-2 bg-bizzCopper/20 hover:bg-bizzCopper/40 border border-bizzCopper/50 text-bizzGold rounded text-xs tracking-wider uppercase transition flex items-center justify-center gap-2">
+            <i class="fa-regular fa-copy"></i> Copiar Script
+          </button>
+        </div>
+
+        <!-- RESGATE 3: CARLOS RIBEIRO -->
+        <div class="bg-bizzCard rounded-lg border border-bizzCardBorder p-5 flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex justify-between items-start mb-2">
+              <span class="text-xs font-semibold text-bizzGold font-luxury">Carlos Ribeiro (Chat [25])</span>
+              <span class="text-[10px] uppercase px-2 py-0.5 bg-bizzCopper/20 text-bizzGold border border-bizzCopper/30 rounded">R$ 997,00 + LTV</span>
+            </div>
+            <span class="text-xs text-bizzMuted block mb-3">Imersão Diagnóstica Face & Corpo</span>
+            <div class="p-3 bg-black/60 rounded border border-bizzCardBorder text-xs text-bizzText leading-relaxed">
+              "Sr. Carlos, boa tarde. Tivemos uma oscilação na nossa linha fixa na sexta-feira e a chamada não foi completada. Como procura uma análise aprofundada de face e corpo com a Dra. Larissa, deixei a janela de amanhã às 14h pré-reservada com exclusividade para finalizarmos o seu agendamento. Podemos confirmar?"
+            </div>
+          </div>
+          <button onclick="copyToClipboard(this)" class="w-full py-2 bg-bizzCopper/20 hover:bg-bizzCopper/40 border border-bizzCopper/50 text-bizzGold rounded text-xs tracking-wider uppercase transition flex items-center justify-center gap-2">
+            <i class="fa-regular fa-copy"></i> Copiar Script
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INVASÃO OPERACIONAL MÉDICA & RISCO REGULATÓRIO -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <div class="bg-bizzCard p-6 rounded-lg border border-bizzCardBorder space-y-3">
+        <h4 class="font-luxury text-sm text-bizzGold uppercase tracking-wider flex items-center gap-2">
+          <i class="fa-solid fa-user-doctor text-bizzCopper"></i> Invasão Operacional Médica (44 Intervenções)
+        </h4>
+        <p class="text-xs text-bizzMuted leading-relaxed">
+          A Dra. Larissa (32 interações) e o Dr. Raphael (12 interações) atuam frequentemente como suporte no WhatsApp da clínica, respondendo a dúvidas de rotina e tentando reativar contactos.
+        </p>
+        <div class="p-3 bg-red-950/20 border border-red-900/30 rounded text-xs text-red-300">
+          <strong>Custo de Oportunidade:</strong> ~R$ 15.000,00/mês em horas clínicas de alto valor desperdiçadas na mediação de mensagens de receção.
+        </div>
+      </div>
+
+      <div class="bg-bizzCard p-6 rounded-lg border border-bizzCardBorder space-y-3">
+        <h4 class="font-luxury text-sm text-bizzGold uppercase tracking-wider flex items-center gap-2">
+          <i class="fa-solid fa-triangle-exclamation text-red-400"></i> Fricção Clínica & Risco LGPD
+        </h4>
+        <p class="text-xs text-bizzMuted leading-relaxed">
+          Detetado cancelamento de consultas por motivos amadores repassados ao paciente ("renovar passaporte" no Chat [33]; "convite para palestra" no Chat [99]).
+        </p>
+        <div class="p-3 bg-red-950/20 border border-red-900/30 rounded text-xs text-red-300">
+          <strong>Violação LGPD Apurada (Chat [109]):</strong> Envio comprovado de exame laboratorial e dados sensíveis de terceiro por engano via WhatsApp.
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- SCRIPTS DE CONFIGURAÇÃO DO CHART.JS -->
+  <script>
+    // 1. Radar Chart: Score Bizz-Gold
+    const ctxRadar = document.getElementById('radarChart').getContext('2d');
+    new Chart(ctxRadar, {
+      type: 'radar',
+      data: {
+        labels: [
+          'Velocidade',
+          'Qualificação (SPIN)',
+          'Ancoragem de Valor',
+          'Contorno de Objeções',
+          'Condução ao Fecho',
+          'Follow-up Estruturado'
+        ],
+        datasets: [{
+          label: 'Desempenho Atual',
+          data: [50, 0, 20, 0, 40, 60],
+          backgroundColor: 'rgba(184, 115, 51, 0.2)',
+          borderColor: '#B87333',
+          pointBackgroundColor: '#D4A853',
+          borderWidth: 2
+        }, {
+          label: 'Padrão Ouro bizz.ia',
+          data: [90, 85, 90, 85, 95, 90],
+          backgroundColor: 'transparent',
+          borderColor: 'rgba(212, 168, 83, 0.4)',
+          borderDash: [5, 5],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          r: {
+            angleLines: { color: 'rgba(255, 255, 255, 0.08)' },
+            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+            pointLabels: { color: '#8E8D8A', font: { size: 10 } },
+            ticks: { display: false, max: 100, min: 0 }
+          }
+        },
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: { color: '#F0EDE8', font: { size: 10 } }
+          }
+        }
+      }
+    });
+
+    // 2. Doughnut Chart: Funil de Triagem
+    const ctxFunnel = document.getElementById('funnelChart').getContext('2d');
+    new Chart(ctxFunnel, {
+      type: 'doughnut',
+      data: {
+        labels: ['Oportunidades Comerciais Válidas', 'Ruído Operacional & Suporte', 'Spam / Fantasmas'],
+        datasets: [{
+          data: [38, 62, 15],
+          backgroundColor: ['#D4A853', '#B87333', '#2A2A2A'],
+          borderColor: '#000000',
+          borderWidth: 3
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: { color: '#F0EDE8', font: { size: 10 } }
+          }
+        }
+      }
+    });
+
+    // Função de Copiar Script
+    function copyToClipboard(button) {
+      const scriptText = button.previousElementSibling.querySelector('div').innerText.replace(/"/g, '');
+      navigator.clipboard.writeText(scriptText).then(() => {
+        const originalContent = button.innerHTML;
+        button.innerHTML = '<i class="fa-solid fa-check text-green-400"></i> Copiado!';
+        button.classList.add('border-green-500/50', 'text-green-400');
+        setTimeout(() => {
+          button.innerHTML = originalContent;
+          button.classList.remove('border-green-500/50', 'text-green-400');
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bizz.ia | Inteligência Forense de Conversão para Clínicas High-Ticket</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#030712',
+                        surface: '#0B0F19',
+                        card: '#111827',
+                        borderSubtle: '#1E293B',
+                        gold: '#D4AF37',
+                        goldGlow: '#F59E0B',
+                        cyanNeon: '#00F0FF',
+                        crimson: '#EF4444'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
+                        mono: ['Space Grotesk', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #030712;
+            color: #E2E8F0;
+            overflow-x: hidden;
+        }
+        
+        .glow-radial {
+            background: radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.08) 0%, rgba(3, 7, 18, 0) 70%);
+        }
+        .gold-glow {
+            box-shadow: 0 0 50px -10px rgba(212, 175, 55, 0.22);
+        }
+        .glass-panel {
+            background: rgba(17, 24, 39, 0.65);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+        .glass-panel-gold {
+            background: linear-gradient(180deg, rgba(212, 175, 55, 0.08) 0%, rgba(17, 24, 39, 0.9) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.45);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #FFFFFF 20%, #94A3B8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #FFF1C5 0%, #D4AF37 55%, #9E740E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .scanline {
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0, 240, 255, 0.02) 50%);
+            background-size: 100% 4px;
+        }
+    </style>
+</head>
+<body class="antialiased scanline selection:bg-cyanNeon selection:text-black">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-borderSubtle/60 bg-obsidian/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-2.5 h-2.5 bg-cyanNeon rounded-full animate-ping"></div>
+                <span class="font-display text-2xl font-extrabold tracking-tight text-white flex items-center">
+                    bizz<span class="text-cyanNeon">.ia</span>
+                </span>
+            </div>
+            
+            <nav class="hidden md:flex items-center gap-8 text-xs font-mono tracking-widest uppercase text-slate-400">
+                <a href="#diagnostico" class="hover:text-cyanNeon transition-colors">A Hemorragia</a>
+                <a href="#auditoria" class="hover:text-cyanNeon transition-colors">Auditoria Cega</a>
+                <a href="#metodo" class="hover:text-cyanNeon transition-colors">Base Neural</a>
+                <a href="#planos" class="hover:text-cyanNeon transition-colors">Protocolos</a>
+            </nav>
+            
+            <a href="#planos" class="relative group px-6 py-2.5 rounded-full overflow-hidden border border-cyanNeon/50 text-xs font-mono uppercase tracking-wider text-white transition-all">
+                <span class="absolute inset-0 bg-cyanNeon translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
+                <span class="relative z-10 font-bold flex items-center gap-2 group-hover:text-black transition-colors">
+                    Estancar Perdas <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                </span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen pt-36 pb-24 flex items-center justify-center glow-radial px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-borderSubtle bg-surface/80 text-xs font-mono uppercase tracking-widest text-slate-300 mb-8">
+                <span class="w-2 h-2 rounded-full bg-crimson animate-pulse"></span>
+                Auditoria de Conversão WhatsApp para Médicos & Dentistas High-Ticket
+            </div>
+            
+            <!-- Main Headline -->
+            <h1 class="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold text-white leading-[1.08] tracking-tight mb-8">
+                Você não está perdendo uma consulta de R$ 800.<br>
+                <span class="text-gradient-gold">Está perdendo o procedimento de R$ 60.000.</span>
+            </h1>
+            
+            <!-- Subheadline -->
+            <p class="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto font-sans font-light leading-relaxed mb-12">
+                Tráfego qualificado, vídeos de autoridade e posicionamento premium são pulverizados quando o lead cai em uma recepção descalibrada. A <strong class="text-white font-semibold">bizz.ia</strong> executa uma auditoria forense por IA no WhatsApp da sua clínica para mapear onde o faturamento está sendo descartado.
+            </p>
+            
+            <!-- CTA Matrix -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-5 mb-16">
+                <a href="#planos" class="w-full sm:w-auto px-10 py-5 rounded-xl bg-gradient-to-r from-gold to-yellow-600 hover:brightness-110 text-black font-mono font-bold text-sm tracking-wider uppercase transition-all shadow-lg shadow-gold/20 flex items-center justify-center gap-3">
+                    Solicitar Auditoria Forense <i data-lucide="shield-alert" class="w-5 h-5"></i>
+                </a>
+                <a href="#metodo" class="w-full sm:w-auto px-8 py-5 rounded-xl glass-panel text-white font-mono text-xs uppercase tracking-widest hover:border-slate-500 transition-all flex items-center justify-center gap-2">
+                    Ver Base Neural <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400"></i>
+                </a>
+            </div>
+            
+            <!-- Trust Metrics -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 border-t border-borderSubtle/60 text-left">
+                <div>
+                    <div class="font-mono text-2xl md:text-3xl font-bold text-white mb-1">+200.000</div>
+                    <div class="text-xs font-mono uppercase tracking-wider text-slate-500">Conversas Calibradas</div>
+                </div>
+                <div>
+                    <div class="font-mono text-2xl md:text-3xl font-bold text-cyanNeon mb-1">100% Cego</div>
+                    <div class="text-xs font-mono uppercase tracking-wider text-slate-500">Auditoria Sem Vício</div>
+                </div>
+                <div>
+                    <div class="font-mono text-2xl md:text-3xl font-bold text-gold mb-1">SPIN & Harvard</div>
+                    <div class="text-xs font-mono uppercase tracking-wider text-slate-500">Padrão de Neurovendas</div>
+                </div>
+                <div>
+                    <div class="font-mono text-2xl md:text-3xl font-bold text-white mb-1">LGPD Strict</div>
+                    <div class="text-xs font-mono uppercase tracking-wider text-slate-500">Anonimização Total</div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- The Problem Section (A Hemorragia) -->
+    <section id="diagnostico" class="py-24 border-t border-borderSubtle/60 bg-surface/50 relative">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <div class="max-w-3xl mb-16">
+                <span class="font-mono text-xs text-crimson uppercase tracking-widest font-bold block mb-3">// 01. OS 3 RALOS INVISÍVEIS</span>
+                <h2 class="font-display text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                    O marketing atrai o paciente A+.<br>
+                    <span class="text-slate-500">A recepção o trata como uma mercadoria comum.</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-panel p-8 rounded-2xl relative overflow-hidden group hover:border-slate-600 transition-all">
+                    <div class="w-12 h-12 rounded-lg bg-crimson/10 border border-crimson/20 flex items-center justify-center text-crimson mb-6">
+                        <i data-lucide="clock" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-3">Latência Crítica</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Um paciente interessado em Harmonização, Facetas ou Lipoaspiração esfria a cada 10 minutos de silêncio nos horários de pico.
+                    </p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="glass-panel p-8 rounded-2xl relative overflow-hidden group hover:border-slate-600 transition-all">
+                    <div class="w-12 h-12 rounded-lg bg-crimson/10 border border-crimson/20 flex items-center justify-center text-crimson mb-6">
+                        <i data-lucide="user-x" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-3">Tiradores de Pedido</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Informar apenas o valor da consulta quando o lead pergunta o preço destrói a percepção de autoridade e transforma seu procedimento em commodity.
+                    </p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="glass-panel p-8 rounded-2xl relative overflow-hidden group hover:border-slate-600 transition-all">
+                    <div class="w-12 h-12 rounded-lg bg-crimson/10 border border-crimson/20 flex items-center justify-center text-crimson mb-6">
+                        <i data-lucide="archive-restore" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white mb-3">Follow-up Fantasma</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Quando o lead visualiza e não responde, a equipe assume o desinteresse ou dispara follow-ups robóticos em massa sem personalização de dor.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Prejuízo Acumulado -->
+            <div class="mt-12 p-8 rounded-2xl border border-borderSubtle bg-card/40 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                    <div class="text-xs font-mono uppercase text-slate-500 tracking-wider mb-1">A Equação do Desperdício</div>
+                    <div class="text-white font-sans text-lg">
+                        <strong>3 leads High-Ticket perdidos por semana</strong> × R$ 25.000 (ticket médio de procedimento) = <strong class="text-crimson font-mono">R$ 300.000/mês na mesa</strong>.
+                    </div>
+                </div>
+                <div class="shrink-0">
+                    <span class="inline-block px-4 py-2 rounded bg-crimson/10 border border-crimson/30 text-crimson font-mono text-xs font-bold uppercase tracking-wider">
+                        Receita Represada
+                    </span>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- The Surprise Factor / Auditoria Cega -->
+    <section id="auditoria" class="py-24 bg-obsidian relative">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="font-mono text-xs text-cyanNeon uppercase tracking-widest font-bold block mb-3">// 02. AUDITORIA CEGA & SILENCIOSA</span>
+                    <h2 class="font-display text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-6">
+                        Sem maquiagem.<br>
+                        Sem comportamento alterado.<br>
+                        <span class="text-gradient-gold">A realidade crua da sua clínica.</span>
+                    </h2>
+                    <p class="text-slate-400 leading-relaxed mb-6 font-light">
+                        Quando a equipe de atendimento sabe previamente que será avaliada, o padrão é adulterado de imediato: mensagens são respondidas rapidamente e os erros são ocultados.
+                    </p>
+                    <p class="text-slate-400 leading-relaxed mb-8 font-light">
+                        O protocolo <strong class="text-white font-semibold">bizz.ia</strong> conecta-se via pareamento seguro e extrai o histórico recente antes de qualquer comunicação interna, garantindo 100% de precisão factual.
+                    </p>
+                    
+                    <div class="space-y-4 font-mono text-xs">
+                        <div class="flex items-center gap-3 text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-cyanNeon shrink-0"></i>
+                            <span>Zero risco de mensagens apagadas ou postura manipulada</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-cyanNeon shrink-0"></i>
+                            <span>Anonimização absoluta: conformidade estrita com a LGPD</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-cyanNeon shrink-0"></i>
+                            <span>Segmentação individual por atendente e turnos de plantão</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Simulated Forensic Terminal -->
+                <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-cyanNeon/20 relative">
+                    <div class="flex items-center justify-between border-b border-borderSubtle pb-4 mb-6 font-mono text-xs">
+                        <span class="text-slate-400">BIZZ_IA_CORE_ENGINE // AUDIT</span>
+                        <span class="text-cyanNeon flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-cyanNeon animate-pulse"></span> EM EXECUÇÃO</span>
+                    </div>
+                    
+                    <div class="space-y-4 font-mono text-xs leading-relaxed">
+                        <div class="p-3.5 rounded-lg bg-surface/90 border border-borderSubtle">
+                            <div class="text-slate-500 mb-1">AMOSTRA COLETADA: INTERAÇÃO #9120</div>
+                            <div class="text-slate-300">"Qual o valor aproximado para protocolo dentário / rinoplastia?"</div>
+                            <div class="text-crimson mt-2 flex items-center gap-2">
+                                <i data-lucide="alert-triangle" class="w-3.5 h-3.5"></i> FALHA GRAVE: Preço disparado sem qualificação prévia
+                            </div>
+                        </div>
+                        
+                        <div class="p-3.5 rounded-lg bg-surface/90 border border-borderSubtle">
+                            <div class="text-slate-500 mb-1">LATÊNCIA DE RESPOSTA // PICO DAS 14:15</div>
+                            <div class="text-slate-300">Tempo sem retorno: <strong class="text-crimson">54 minutos</strong></div>
+                            <div class="text-yellow-500 mt-2 flex items-center gap-2">
+                                <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i> IMPACTO: Perda de lead para concorrente direto
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 rounded-lg bg-cyanNeon/5 border border-cyanNeon/30">
+                            <div class="text-cyanNeon font-bold mb-1">// PADRÃO OURO DE CONVERSÃO</div>
+                            <div class="text-slate-300">Aderência aos benchmarks bizz.ia: <strong class="text-white">28.4% (Risco Crítico)</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Base Neural & Metodologia -->
+    <section id="metodo" class="py-24 border-t border-borderSubtle/60 bg-surface/30">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            
+            <span class="font-mono text-xs text-gold uppercase tracking-widest font-bold block mb-3">// 03. A VANTAGEM INJUSTA</span>
+            <h2 class="font-display text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-6">
+                Não é uma IA genérica.<br>
+                <span class="text-gradient-gold">É um banco neural treinado em +200 mil conversas.</span>
+            </h2>
+            <p class="text-slate-400 max-w-3xl mx-auto font-light leading-relaxed mb-16">
+                Modelos de linguagem genéricos não compreendem a psicologia da objeção de um paciente que hesita em desembolsar R$ 40.000 em cirurgia ou procedimentos avançados.
+            </p>
+            
+            <div class="grid md:grid-cols-4 gap-6 text-left">
+                <div class="p-6 rounded-2xl glass-panel">
+                    <div class="font-mono text-cyanNeon text-lg font-bold mb-2">SPIN Selling</div>
+                    <p class="text-slate-400 text-xs leading-relaxed">Avaliação estruturada de perguntas de Situação, Problema, Implicação e Necessidade antes de dar preço.</p>
+                </div>
+                
+                <div class="p-6 rounded-2xl glass-panel">
+                    <div class="font-mono text-gold text-lg font-bold mb-2">Harvard Model</div>
+                    <p class="text-slate-400 text-xs leading-relaxed">Mapeamento de ancoragem de valor e negociação consultiva baseada em interesses reais vs. posições.</p>
+                </div>
+                
+                <div class="p-6 rounded-2xl glass-panel">
+                    <div class="font-mono text-white text-lg font-bold mb-2">Neurovendas</div>
+                    <p class="text-slate-400 text-xs leading-relaxed">Identificação de gatilhos de autoridade médica, prova social e redução drástica da fricção decisória.</p>
+                </div>
+                
+                <div class="p-6 rounded-2xl glass-panel">
+                    <div class="font-mono text-crimson text-lg font-bold mb-2">Recaptura Ativa</div>
+                    <p class="text-slate-400 text-xs leading-relaxed">Classificação de oportunidades perdidas com abordagem cirúrgica pronta para reativação da agenda.</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Pricing Section (Efeito Ancoragem) -->
+    <section id="planos" class="py-28 bg-obsidian relative">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <span class="font-mono text-xs text-cyanNeon uppercase tracking-widest font-bold block mb-3">// 04. INVESTIMENTO & ENTREGAS</span>
+                <h2 class="font-display text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-6">
+                    Escolha o nível da sua intervenção.
+                </h2>
+                <p class="text-slate-400 font-light">
+                    O custo da auditoria forense representa uma fração minúscula de um único procedimento cirúrgico ou estético que sua recepção descarta no vácuo.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8 items-stretch">
+                
+                <!-- Plano 1: Diagnosis -->
+                <div class="glass-panel p-8 sm:p-10 rounded-3xl flex flex-col justify-between border border-borderSubtle">
+                    <div>
+                        <div class="font-mono text-xs uppercase tracking-widest text-slate-500 mb-2">Protocolo 01</div>
+                        <h3 class="font-display text-2xl font-bold text-white mb-4">Diagnosis</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-8">
+                            A constatação nua e crua do vazamento financeiro. Indicado para clínicas que buscam apenas o raio-x exato do estrago.
+                        </p>
+                        
+                        <div class="mb-8">
+                            <span class="text-xs font-mono text-slate-500 uppercase">Investimento único</span>
+                            <div class="font-mono text-4xl font-bold text-white mt-1">R$ 1.997</div>
+                        </div>
+                        
+                        <ul class="space-y-4 text-xs font-mono text-slate-300 border-t border-borderSubtle pt-8 mb-8">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-4 h-4 text-cyanNeon shrink-0"></i>
+                                <span>Auditoria cega em <strong>100 conversas reais</strong></span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-4 h-4 text-cyanNeon shrink-0"></i>
+                                <span>Mapeamento de latência e horários críticos de abandono</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-4 h-4 text-cyanNeon shrink-0"></i>
+                                <span>Relatório executivo com estimativa de prejuízo financeiro</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-500 line-through">
+                                <i data-lucide="x" class="w-4 h-4 shrink-0"></i>
+                                <span>Sem plano tático ou scripts de intervenção</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-500 line-through">
+                                <i data-lucide="x" class="w-4 h-4 shrink-0"></i>
+                                <span>Sem acompanhamento ou capacitação de equipe</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Botão Plano 1 -->
+                    <!-- INSERIR LINK CHECKOUT PLANO 1 ABAIXO -->
+                    <a href="#" class="w-full py-4 rounded-xl border border-borderSubtle hover:bg-slate-800 text-white font-mono text-xs uppercase tracking-wider font-bold text-center transition-all block">
+                        Contratar Diagnosis
+                    </a>
+                </div>
+                
+                <!-- Plano 2: Action Plan -->
+                <div class="glass-panel p-8 sm:p-10 rounded-3xl flex flex-col justify-between border border-slate-600">
+                    <div>
+                        <div class="font-mono text-xs uppercase tracking-widest text-cyanNeon mb-2">Protocolo 02</div>
+                        <h3 class="font-display text-2xl font-bold text-white mb-4">Action Plan</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-8">
+                            Diagnóstico aprofundado somado aos manuais táticos e roteiros validados para a sua própria equipe implantar.
+                        </p>
+                        
+                        <div class="mb-8">
+                            <span class="text-xs font-mono text-slate-500 uppercase">Investimento único</span>
+                            <div class="font-mono text-4xl font-bold text-white mt-1">R$ 3.437</div>
+                        </div>
+                        
+                        <ul class="space-y-4 text-xs font-mono text-slate-300 border-t border-borderSubtle pt-8 mb-8">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-4 h-4 text-cyanNeon shrink-0"></i>
+                                <span>Auditoria cega em <strong>100 conversas reais</strong></span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-4 h-4 text-cyanNeon shrink-0"></i>
+                                <span><strong>Plano de Ação Completo</strong> com matriz de quebra de objeções</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-4 h-4 text-cyanNeon shrink-0"></i>
+                                <span>Scripts de Neurovendas prontos para aplicação diária</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-4 h-4 text-cyanNeon shrink-0"></i>
+                                <span>Fluxos táticos de follow-up e recaptura de contatos</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-500 line-through">
+                                <i data-lucide="x" class="w-4 h-4 shrink-0"></i>
+                                <span>Sem reuniões de alinhamento com especialistas</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Botão Plano 2 -->
+                    <!-- INSERIR LINK CHECKOUT PLANO 2 ABAIXO -->
+                    <a href="#" class="w-full py-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-mono text-xs uppercase tracking-wider font-bold text-center transition-all block">
+                        Contratar Action Plan
+                    </a>
+                </div>
+                
+                <!-- Plano 3: bizz.ia Flagship -->
+                <div class="glass-panel-gold p-8 sm:p-10 rounded-3xl flex flex-col justify-between relative gold-glow">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gold text-black font-mono text-[10px] uppercase font-bold tracking-widest shrink-0">
+                        Recomendado • Imersão Executiva
+                    </div>
+                    
+                    <div>
+                        <div class="font-mono text-xs uppercase tracking-widest text-gold mb-2">Protocolo 03 • Consulting</div>
+                        <h3 class="font-display text-2xl font-bold text-white mb-4">bizz.ia Consulting</h3>
+                        <p class="text-slate-300 text-xs leading-relaxed mb-8">
+                            Intervenção executiva direta durante 3 meses, com treinamento contínuo, monitoramento diário e resgate ativo de leads.
+                        </p>
+                        
+                        <div class="mb-8">
+                            <span class="text-xs font-mono text-gold uppercase tracking-wider">3 Meses de Acompanhamento</span>
+                            <div class="font-mono text-4xl sm:text-5xl font-bold text-white mt-1">R$ 14.997</div>
+                        </div>
+                        
+                        <ul class="space-y-4 text-xs font-mono text-slate-200 border-t border-gold/30 pt-8 mb-8">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="shield-check" class="w-4 h-4 text-gold shrink-0"></i>
+                                <span><strong>Auditoria em 200 conversas</strong> (Sucessos vs. Falhas vs. Abandonos)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="shield-check" class="w-4 h-4 text-gold shrink-0"></i>
+                                <span><strong>1ª Reunião de Choque:</strong> Apresentação dos dados reais para a diretoria</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="shield-check" class="w-4 h-4 text-gold shrink-0"></i>
+                                <span><strong>8 Reuniões Semanais</strong> de treinamento tático com a equipe da recepção</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="shield-check" class="w-4 h-4 text-gold shrink-0"></i>
+                                <span>Monitoramento ativo da rotina do WhatsApp durante 90 dias</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="shield-check" class="w-4 h-4 text-gold shrink-0"></i>
+                                <span>Protocolo de Recaptura imediata dos leads de alto ticket represados</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-gold">
+                                <i data-lucide="sparkles" class="w-4 h-4 shrink-0"></i>
+                                <span><strong>BÔNUS:</strong> 2ª Rodada de Auditoria Forense para validação dos resultados</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Botão Plano 3 -->
+                    <!-- INSERIR LINK CHECKOUT PLANO 3 ABAIXO -->
+                    <a href="#" class="w-full py-5 rounded-xl bg-gradient-to-r from-gold to-yellow-600 hover:brightness-110 text-black font-mono text-xs uppercase tracking-wider font-extrabold text-center transition-all block shadow-lg shadow-gold/20">
+                        Aplicar para Consultoria bizz.ia
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 border-t border-borderSubtle/60 bg-surface/50">
+        <div class="max-w-4xl mx-auto px-6">
+            
+            <div class="text-center mb-16">
+                <span class="font-mono text-xs text-slate-500 uppercase tracking-widest font-bold block mb-2">// FAQ</span>
+                <h2 class="font-display text-3xl font-bold text-white">Perguntas Frequentes</h2>
+            </div>
+            
+            <div class="space-y-6 text-sm">
+                <div class="glass-panel p-6 rounded-2xl">
+                    <h3 class="font-bold text-white mb-2">Como garantimos que a equipe não saberá da auditoria inicialmente?</h3>
+                    <p class="text-slate-400 font-light leading-relaxed">
+                        O pareamento de código do WhatsApp é feito em minutos diretamente com o titular ou gestor da clínica. A extração atua sobre o histórico recente de forma silenciosa e cega, garantindo que o comportamento auditado seja o da rotina real.
+                    </p>
+                </div>
+                
+                <div class="glass-panel p-6 rounded-2xl">
+                    <h3 class="font-bold text-white mb-2">Como é garantida a conformidade com a LGPD?</h3>
+                    <p class="text-slate-400 font-light leading-relaxed">
+                        Nenhum dado sensível de paciente (nomes completos, dados médicos ou prontuários) é exposto ou armazenado em claro fora do cofre cifrado (AES-256-GCM). A inteligência foca estritamente nos padrões textuais, tempos de resposta e performance da equipe.
+                    </p>
+                </div>
+                
+                <div class="glass-panel p-6 rounded-2xl">
+                    <h3 class="font-bold text-white mb-2">Qual é o prazo para entrega do diagnóstico?</h3>
+                    <p class="text-slate-400 font-light leading-relaxed">
+                        Nos planos Diagnosis e Action Plan, o relatório executivo é emitido em até 5 dias úteis. No plano bizz.ia Consulting, a Reunião de Choque é agendada em até 7 dias úteis após a sincronização inicial.
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-borderSubtle bg-obsidian text-center font-mono text-xs text-slate-600">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2">
+                <span class="font-display text-lg font-bold text-white tracking-tight">bizz<span class="text-cyanNeon">.ia</span></span>
+                <span>© 2026. Todos os direitos reservados.</span>
+            </div>
+            <div class="text-slate-500">
+                Engenharia de Conversão & Neurovendas para Clínicas e Consultórios High-Ticket.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

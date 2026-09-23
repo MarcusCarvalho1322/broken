@@ -1,0 +1,143 @@
+{
+  "audit_metadata": {
+    "total_chats_parsed": 115,
+    "commercial_tickets_isolated": 64,
+    "administrative_tickets_ignored": 19,
+    "ghost_and_noise": 32,
+    "score_bizz_gold_overall": 25.9,
+    "cobertura_analitica_pct": 98.6
+  },
+  "financial_leakage": {
+    "commercial_leads_lost": 44,
+    "constants": {
+      "N_c": 64,
+      "N_f": 20,
+      "N_nc": 44,
+      "N_g": 22,
+      "t": 0.3125,
+      "r": 0.5789
+    },
+    "formula_exposed": "E = N_nc × T",
+    "formula_recoverable": "R = k × T",
+    "multiplier_k": 17.7303,
+    "sensitivity_table": [
+      {
+        "ticket_referencia": 1500,
+        "exposto": 66000,
+        "recuperavel": 26595
+      },
+      {
+        "ticket_referencia": 2500,
+        "exposto": 110000,
+        "recuperavel": 44326
+      },
+      {
+        "ticket_referencia": 5000,
+        "exposto": 220000,
+        "recuperavel": 88651
+      },
+      {
+        "ticket_referencia": 10000,
+        "exposto": 440000,
+        "recuperavel": 177303
+      },
+      {
+        "ticket_referencia": 25000,
+        "exposto": 1100000,
+        "recuperavel": 443257
+      },
+      {
+        "ticket_referencia": 50000,
+        "exposto": 2200000,
+        "recuperavel": 886513
+      }
+    ],
+    "ltv_confidence": "Baixo (Nível 4 — sem tabela/faturamento da clínica; T permanece variável)"
+  },
+  "operator_performance": [
+    {
+      "name": "Carla",
+      "commercial_conversion_rate": 34.0,
+      "primary_fatal_flaw": "Despejo de tabela sem ancoragem de valor",
+      "spam_detected": false,
+      "cross_selling_attempts": 0
+    },
+    {
+      "name": "Recepcao",
+      "commercial_conversion_rate": 26.7,
+      "primary_fatal_flaw": "Follow-up robótico (mensagens em massa)",
+      "spam_detected": true,
+      "cross_selling_attempts": 0
+    },
+    {
+      "name": "Dra. Larissa",
+      "commercial_conversion_rate": 0.0,
+      "primary_fatal_flaw": "Alta latência + ausência de contorno de objeção",
+      "spam_detected": false,
+      "cross_selling_attempts": 0
+    },
+    {
+      "name": "Maria",
+      "commercial_conversion_rate": 0.0,
+      "primary_fatal_flaw": "Alta latência + ausência de contorno de objeção",
+      "spam_detected": false,
+      "cross_selling_attempts": 0
+    }
+  ],
+  "governance_and_mrr": {
+    "doctors_in_support_role": [
+      "Dra. Larissa"
+    ],
+    "doctor_messages": 2,
+    "clinic_induced_friction_events": {
+      "Sistema fora do ar": 1,
+      "Remarcação": 1
+    },
+    "patients_at_churn_risk": 0
+  },
+  "leads_for_immediate_rescue": [
+    {
+      "lead_hash": "LEAD_GHALW2BQ",
+      "procedure_interest": "cirurgia",
+      "drop_reason": "objeção não tratada",
+      "suggested_recovery_script": "[NOME], aqui é a recepção da clínica. Vi que você tinha interesse e acabou sem retorno — quero resolver com prioridade. A doutora vai te chamar pessoalmente pra uma avaliação técnica do seu caso, sem compromisso. Posso encaixar você amanhã?"
+    },
+    {
+      "lead_hash": "LEAD_MV35EQVH",
+      "procedure_interest": "implante",
+      "drop_reason": "objeção não tratada",
+      "suggested_recovery_script": "[NOME], aqui é a recepção da clínica. Vi que você tinha interesse e acabou sem retorno — quero resolver com prioridade. A doutora vai te chamar pessoalmente pra uma avaliação técnica do seu caso, sem compromisso. Posso encaixar você amanhã?"
+    },
+    {
+      "lead_hash": "LEAD_AZMYHYUO",
+      "procedure_interest": "botox",
+      "drop_reason": "objeção não tratada",
+      "suggested_recovery_script": "[NOME], aqui é a recepção da clínica. Vi que você tinha interesse e acabou sem retorno — quero resolver com prioridade. A doutora vai te chamar pessoalmente pra uma avaliação técnica do seu caso, sem compromisso. Posso encaixar você amanhã?"
+    },
+    {
+      "lead_hash": "LEAD_MWZHCK7D",
+      "procedure_interest": "botox",
+      "drop_reason": "objeção não tratada",
+      "suggested_recovery_script": "[NOME], aqui é a recepção da clínica. Vi que você tinha interesse e acabou sem retorno — quero resolver com prioridade. A doutora vai te chamar pessoalmente pra uma avaliação técnica do seu caso, sem compromisso. Posso encaixar você amanhã?"
+    },
+    {
+      "lead_hash": "LEAD_S7OSZVK6",
+      "procedure_interest": "botox",
+      "drop_reason": "objeção não tratada",
+      "suggested_recovery_script": "[NOME], aqui é a recepção da clínica. Vi que você tinha interesse e acabou sem retorno — quero resolver com prioridade. A doutora vai te chamar pessoalmente pra uma avaliação técnica do seu caso, sem compromisso. Posso encaixar você amanhã?"
+    }
+  ],
+  "_spam_messages": {
+    "estamos entrando em contato com algumas pacientes que estão há um tempo sem nos visitar e lembramos de você! como você está?": 7,
+    "estamos entrando em contato com algumas pacientes que estão há um tempinho sem nos visitar e lembramos de você! como você está?": 7,
+    "imersão diagnóstica la vienne mais do que uma consulta, é uma avaliação médica aprofundada. durante aproximadamente 1h30, analisamos: •⁠ ⁠face •⁠ ⁠corpo •⁠ ⁠cabelos •⁠ ⁠hábitos de vida •⁠ ⁠postura e funcionalidade corporal •⁠ ⁠saúde da pele e dos cabelos •⁠ ⁠anatomia e proporções •⁠ ⁠avaliação facial computadorizada •⁠ ⁠principais objetivos e expectativas da paciente a partir dessa avaliação, construímos um planejamento médico individualizado, respeitando a anatomia, a funcionalidade e a naturalidade.": 5
+  },
+  "_score_eixos": {
+    "qualificacao": 1.6,
+    "valor_ancoragem": 56.2,
+    "contorno_objecao": 10.0,
+    "conducao_fechamento": 4.7,
+    "velocidade": 57.8,
+    "followup": 81.2
+  }
+}
