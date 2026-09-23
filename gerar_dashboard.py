@@ -232,6 +232,17 @@ def main() -> int:
         vault = None
 
     dados = agregar(rows, vault)
+    
+    # Enriquecer com telemetria forense se existir
+    telemetria_file = Path(args.metrics).parent / "forense" / "telemetria.json"
+    if not telemetria_file.exists():
+        telemetria_file = Path("./forense/telemetria.json")
+    if telemetria_file.exists():
+        try:
+            dados["telemetria"] = json.loads(telemetria_file.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+
     logo_b64 = base64.b64encode(Path(args.logo).read_bytes()).decode()
     tpl = Path(args.template).read_text(encoding="utf-8")
     html = (tpl.replace("__LOGO__", "data:image/png;base64," + logo_b64)
